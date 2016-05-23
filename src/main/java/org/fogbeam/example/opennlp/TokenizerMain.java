@@ -3,6 +3,7 @@ package org.fogbeam.example.opennlp;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,6 +52,10 @@ public class TokenizerMain
   			    String[] tokens = tokenizer.tokenize(line);
   			    fileTokens.addAll(Arrays.asList(tokens));
   			  }
+			  }
+			  catch (FileNotFoundException e)
+			  {
+			    throw e;
 			  }
 			  finally
 			  {
