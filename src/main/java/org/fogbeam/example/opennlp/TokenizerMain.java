@@ -1,4 +1,3 @@
-
 package org.fogbeam.example.opennlp;
 
 
@@ -7,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileVisitOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -15,9 +13,17 @@ import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
-
+/**
+ * Tokenizer demo.
+ */
 public class TokenizerMain
 {
+  /**
+   * Reads a set of input files from as arguments and tokenizes its contents.
+   * Each token is written to standard output.
+   * @param args The set of file names.
+   * @throws Exception If some files are not found.
+   */
 	public static void main( String[] args ) throws Exception
 	{
 	  if (args.length == 0)
@@ -53,18 +59,6 @@ public class TokenizerMain
             System.out.println(token);
 			  }
 			}
-			
-			/* note what happens with the "three depending on which model you use
-			String[] tokens = tokenizer.tokenize
-					(  "A ranger journeying with Oglethorpe, founder of the Georgia Colony, " 
-							+ " mentions \"three Mounts raised by the Indians over three of their Great Kings" 
-							+ " who were killed in the Wars.\"" );
-			
-			for( String token : tokens )
-			{
-				System.out.println( token );
-			}
-			*/
 		}
 		catch( IOException e )
 		{
