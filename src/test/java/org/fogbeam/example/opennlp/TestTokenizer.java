@@ -1,4 +1,4 @@
-package org.fogbeam.example.opennlp.test;
+package org.fogbeam.example.opennlp;
 import static org.junit.Assert.*;
 
 import org.fogbeam.example.opennlp.TokenizerMain;
@@ -10,7 +10,7 @@ public class TestTokenizer {
 
   @Before
   public void setUp() throws Exception {
-    
+
   }
 
   @After

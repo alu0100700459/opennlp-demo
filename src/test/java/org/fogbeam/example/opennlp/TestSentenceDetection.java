@@ -1,4 +1,4 @@
-package org.fogbeam.example.opennlp.test;
+package org.fogbeam.example.opennlp;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
@@ -35,7 +35,7 @@ public class TestSentenceDetection {
     } catch (Exception e) {
       fail("This should not throw an exception");
     }
-    
+
     try (InputStream in = createStream())
     {
       StringBuilder sb = new StringBuilder();
@@ -43,7 +43,7 @@ public class TestSentenceDetection {
       String read;
       while((read = reader.readLine()) != null)
         sb.append(read);
-      
+
       reader.close();
       content2 = sb.toString();
     } catch (Exception e) {
@@ -54,7 +54,7 @@ public class TestSentenceDetection {
     assertNotNull(content2);
     assertEquals(content1, content2);
   }
-  
+
   private InputStream createStream() throws FileNotFoundException {
     return new FileInputStream("test/simpletext1.txt");
   }
