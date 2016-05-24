@@ -9,9 +9,17 @@ import java.io.InputStream;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 
-
+/**
+ * This class tags texts with POS tags.
+ */
 public class PartOfSpeechTaggerMain
 {
+  /**
+   * Takes the sentence "Most large cities in the US had morning and
+   * afternoon newspapers." and tags each word with its associated
+   * part of speech tag.
+   * @param args Unused.
+   */
 	public static void main( String[] args )
 	{
 		InputStream modelIn = null;
@@ -36,8 +44,6 @@ public class PartOfSpeechTaggerMain
 			{
 				System.out.println( "Token [" + sent[i] + "] has POS [" + tags[i] + "] with probability = " + probs[i] );
 			}
-			
-			
 		}
 		catch( IOException e )
 		{
@@ -57,11 +63,6 @@ public class PartOfSpeechTaggerMain
 				}
 			}
 		}
-
-		
-
-		
-		
 		
 		System.out.println( "done" );
 	}
