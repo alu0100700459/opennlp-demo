@@ -1,8 +1,10 @@
 package org.fogbeam.example.opennlp;
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 
 import org.fogbeam.example.opennlp.TokenizerMain;
@@ -34,6 +36,23 @@ public class TestTokenizer {
       TokenizerMain.main(new String[]{"thisFileDoesNotExist"});
       fail("This should have thrown an Exception");
     } catch (Exception e) {}
+  }
+  
+  @Test
+  public void testZeroArgs() {
+    try {
+      ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+      PrintStream stream = new PrintStream(outStream);
+      System.setOut(stream);
+      
+      TokenizerMain.main(new String[0]);
+      
+      assertEquals("You have to specify a set of file names containing plain text.",
+                   outStream.toString().trim());
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("This should not throw an Exception");
+    }
   }
   
   @Test
